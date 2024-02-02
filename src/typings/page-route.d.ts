@@ -30,6 +30,7 @@ declare namespace PageRoute {
     | 'component_button'
     | 'component_card'
     | 'component_table'
+    | 'config'
     | 'dashboard'
     | 'dashboard_analysis'
     | 'dashboard_workbench'
@@ -53,11 +54,14 @@ declare namespace PageRoute {
     | 'management_role'
     | 'management_route'
     | 'management_user'
+    | 'module-log'
+    | 'module-setting'
     | 'multi-menu'
     | 'multi-menu_first'
     | 'multi-menu_first_second-new'
     | 'multi-menu_first_second-new_third'
     | 'multi-menu_first_second'
+    | 'operation-log'
     | 'plugin'
     | 'plugin_charts'
     | 'plugin_charts_antv'
@@ -70,7 +74,8 @@ declare namespace PageRoute {
     | 'plugin_map'
     | 'plugin_print'
     | 'plugin_swiper'
-    | 'plugin_video';
+    | 'plugin_video'
+    | 'upload';
 
   /**
    * last degree route key, which has the page file
@@ -90,6 +95,7 @@ declare namespace PageRoute {
     | 'component_button'
     | 'component_card'
     | 'component_table'
+    | 'config'
     | 'dashboard_analysis'
     | 'dashboard_workbench'
     | 'document_naive'
@@ -108,8 +114,11 @@ declare namespace PageRoute {
     | 'management_role'
     | 'management_route'
     | 'management_user'
+    | 'module-log'
+    | 'module-setting'
     | 'multi-menu_first_second-new_third'
     | 'multi-menu_first_second'
+    | 'operation-log'
     | 'plugin_charts_antv'
     | 'plugin_charts_echarts'
     | 'plugin_copy'
@@ -120,5 +129,6 @@ declare namespace PageRoute {
     | 'plugin_print'
     | 'plugin_swiper'
     | 'plugin_video'
+    | 'upload'
   >;
 }
