@@ -1,3 +1,123 @@
 <template>
-	<div></div>
+	<n-space class="container" vertical>
+		<SearchForm
+			:searchFormConfig="searchFormConfig"
+			:more="true"
+			@search="onSearch"
+			@reset="onReset"
+			@more="onSeeMore"
+		/>
+		<n-data-table
+			:columns="TableColumns"
+			:data="TableData"
+			:pagination="pagination"
+		/>
+	</n-space>
 </template>
+
+<script setup lang="tsx">
+import { SearchForm } from "./components";
+import { searchFormConfig } from "./constants";
+import { h } from "vue";
+import { NTag } from "naive-ui";
+import type { DataTableColumns } from "naive-ui";
+import { useRouter } from "vue-router";
+
+const createColumns = (): DataTableColumns<any> => {
+	return [
+		{
+			title: "使用记录",
+			key: "opLog",
+			align: "center",
+		},
+		{
+			title: "模型类型",
+			key: "type",
+			align: "center",
+			render(row) {
+				return h(
+					NTag,
+					{
+						style: {
+							marginRight: "6px",
+						},
+						type: "info",
+						bordered: false,
+					},
+					{
+						default: () => row.type,
+					},
+				);
+			},
+		},
+		{
+			title: "操作人",
+			key: "operator",
+			align: "center",
+		},
+		{
+			title: "操作时间",
+			key: "opTime",
+			align: "center",
+		},
+	];
+};
+const createData = (): any[] => [
+	{
+		logId: 0,
+		opLog: "创建了这个页面",
+		opTime: "2024/2/3 20:09",
+		type: "类型1",
+		operator: "Ming",
+	},
+	{
+		logId: 1,
+		opLog: "创建了这个页面",
+		opTime: "2024/2/3 20:09",
+		type: "类型1",
+		operator: "Ming",
+	},
+	{
+		logId: 2,
+		opLog: "创建了这个页面",
+		opTime: "2024/2/3 20:09",
+		type: "类型1",
+		operator: "Ming",
+	},
+	{
+		logId: 3,
+		opLog: "创建了这个页面",
+		opTime: "2024/2/3 20:09",
+		type: "类型1",
+		operator: "Ming",
+	},
+	{
+		logId: 4,
+		opLog: "创建了这个页面",
+		opTime: "2024/2/3 20:09",
+		type: "类型1",
+		operator: "Ming",
+	},
+];
+
+const router = useRouter();
+const TableData = createData();
+const TableColumns = createColumns();
+const pagination = {
+	pageSizes: [2, 5, 10, 20],
+	showQuickJumper: true,
+	showSizePicker: true,
+};
+
+const onSearch = (searchForm: any) => {
+	// console.log(searchForm);
+};
+
+const onReset = (searchForm: any) => {
+	// console.log(searchForm);
+};
+
+const onSeeMore = () => {
+	router.push("/module-detail");
+};
+</script>

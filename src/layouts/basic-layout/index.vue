@@ -33,8 +33,8 @@
       <global-footer />
     </template>
   </admin-layout>
-  <n-back-top :key="theme.scrollMode" :listen-to="`#${app.scrollElId}`" class="z-100" />
-  <setting-drawer />
+  <!-- <n-back-top :key="theme.scrollMode" :listen-to="`#${app.scrollElId}`" class="z-100" /> -->
+  <setting-drawer v-if="app.$state.settingDrawerVisible"/>
 </template>
 
 <script setup lang="ts">
