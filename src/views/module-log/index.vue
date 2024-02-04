@@ -51,12 +51,12 @@ const createColumns = (): DataTableColumns<any> => {
 			},
 		},
 		{
-			title: "操作人",
+			title: "使用人",
 			key: "operator",
 			align: "center",
 		},
 		{
-			title: "操作时间",
+			title: "使用时间",
 			key: "opTime",
 			align: "center",
 		},

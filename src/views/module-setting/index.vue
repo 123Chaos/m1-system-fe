@@ -1,3 +1,3 @@
 <template>
-	<div></div>
+	<div>模型配置</div>
 </template>

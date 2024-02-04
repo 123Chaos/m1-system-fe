@@ -12,7 +12,7 @@
       <full-screen />
       <theme-mode />
       <system-message />
-      <setting-button v-if="showButton" />
+      <!-- <setting-button v-if="showButton" /> -->
       <user-avatar />
     </div>
   </dark-mode-container>
@@ -29,7 +29,6 @@ import {
   GlobalBreadcrumb,
   HeaderMenu,
   MenuCollapse,
-  SettingButton,
   SystemMessage,
   ThemeMode,
   UserAvatar,
@@ -50,8 +49,6 @@ defineProps<Props>();
 
 const theme = useThemeStore();
 const { isMobile } = useBasicLayout();
-
-const showButton = import.meta.env.PROD && import.meta.env.VITE_VERCEL !== 'Y';
 </script>
 
 <style scoped>

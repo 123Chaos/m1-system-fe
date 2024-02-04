@@ -16,7 +16,7 @@ defineOptions({ name: 'GithubSite' });
 
 const theme = useThemeStore();
 function handleClickLink() {
-  window.open('https://github.com/123Chaos/m1-system/tree/master', '_blank');
+  window.open('https://github.com/123Chaos', '_blank');
 }
 </script>
 

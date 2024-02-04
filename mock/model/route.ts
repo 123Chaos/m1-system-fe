@@ -297,90 +297,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
       }
     },
     {
-      name: 'auth-demo',
-      path: '/auth-demo',
-      component: 'basic',
-      children: [
-        {
-          name: 'auth-demo_permission',
-          path: '/auth-demo/permission',
-          component: 'self',
-          meta: {
-            title: '权限切换',
-            i18nTitle: 'routes.auth-demo.permission',
-            requiresAuth: true,
-            icon: 'ic:round-construction'
-          }
-        },
-        {
-          name: 'auth-demo_super',
-          path: '/auth-demo/super',
-          component: 'self',
-          meta: {
-            title: '超级管理员可见',
-            i18nTitle: 'routes.auth-demo.super',
-            requiresAuth: true,
-            icon: 'ic:round-supervisor-account'
-          }
-        }
-      ],
-      meta: {
-        title: '权限示例',
-        i18nTitle: 'routes.auth-demo._value',
-        icon: 'ic:baseline-security',
-        order: 5
-      }
-    },
-    {
-      name: 'function',
-      path: '/function',
-      component: 'basic',
-      children: [
-        {
-          name: 'function_tab',
-          path: '/function/tab',
-          component: 'self',
-          meta: {
-            title: 'Tab',
-            i18nTitle: 'routes.function.tab',
-            requiresAuth: true,
-            icon: 'ic:round-tab'
-          }
-        },
-        {
-          name: 'function_tab-detail',
-          path: '/function/tab-detail',
-          component: 'self',
-          meta: {
-            title: 'Tab Detail',
-            requiresAuth: true,
-            hide: true,
-            activeMenu: 'function_tab',
-            icon: 'ic:round-tab'
-          }
-        },
-        {
-          name: 'function_tab-multi-detail',
-          path: '/function/tab-multi-detail',
-          component: 'self',
-          meta: {
-            title: 'Tab Multi Detail',
-            requiresAuth: true,
-            hide: true,
-            multiTab: true,
-            activeMenu: 'function_tab',
-            icon: 'ic:round-tab'
-          }
-        }
-      ],
-      meta: {
-        title: '功能',
-        i18nTitle: 'routes.function._value',
-        icon: 'icon-park-outline:all-application',
-        order: 6
-      }
-    },
-    {
       name: 'exception',
       path: '/exception',
       component: 'basic',
@@ -542,20 +458,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
         order: 9
       }
     },
-    {
-      name: 'about',
-      path: '/about',
-      component: 'self',
-      meta: {
-        title: '关于',
-        i18nTitle: 'routes.about',
-        requiresAuth: true,
-        keepAlive: true,
-        singleLayout: 'basic',
-        icon: 'fluent:book-information-24-regular',
-        order: 10
-      }
-    }
   ],
   admin: [
     {
@@ -855,90 +757,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
       }
     },
     {
-      name: 'auth-demo',
-      path: '/auth-demo',
-      component: 'basic',
-      children: [
-        {
-          name: 'auth-demo_permission',
-          path: '/auth-demo/permission',
-          component: 'self',
-          meta: {
-            title: '权限切换',
-            i18nTitle: 'routes.auth-demo.permission',
-            requiresAuth: true,
-            icon: 'ic:round-construction'
-          }
-        },
-        {
-          name: 'auth-demo_super',
-          path: '/auth-demo/super',
-          component: 'self',
-          meta: {
-            title: '超级管理员可见',
-            i18nTitle: 'routes.auth-demo.super',
-            requiresAuth: true,
-            icon: 'ic:round-supervisor-account'
-          }
-        }
-      ],
-      meta: {
-        title: '权限示例',
-        i18nTitle: 'routes.auth-demo._value',
-        icon: 'ic:baseline-security',
-        order: 5
-      }
-    },
-    {
-      name: 'function',
-      path: '/function',
-      component: 'basic',
-      children: [
-        {
-          name: 'function_tab',
-          path: '/function/tab',
-          component: 'self',
-          meta: {
-            title: 'Tab',
-            i18nTitle: 'routes.function.tab',
-            requiresAuth: true,
-            icon: 'ic:round-tab'
-          }
-        },
-        {
-          name: 'function_tab-detail',
-          path: '/function/tab-detail',
-          component: 'self',
-          meta: {
-            title: 'Tab Detail',
-            requiresAuth: true,
-            hide: true,
-            activeMenu: 'function_tab',
-            icon: 'ic:round-tab'
-          }
-        },
-        {
-          name: 'function_tab-multi-detail',
-          path: '/function/tab-multi-detail',
-          component: 'self',
-          meta: {
-            title: 'Tab Multi Detail',
-            requiresAuth: true,
-            hide: true,
-            multiTab: true,
-            activeMenu: 'function_tab',
-            icon: 'ic:round-tab'
-          }
-        }
-      ],
-      meta: {
-        title: '功能',
-        i18nTitle: 'routes.function._value',
-        icon: 'icon-park-outline:all-application',
-        order: 6
-      }
-    },
-    {
       name: 'exception',
       path: '/exception',
       component: 'basic',
@@ -1100,20 +918,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
         order: 9
       }
     },
-    {
-      name: 'about',
-      path: '/about',
-      component: 'self',
-      meta: {
-        title: '关于',
-        i18nTitle: 'routes.about',
-        requiresAuth: true,
-        keepAlive: true,
-        singleLayout: 'basic',
-        icon: 'fluent:book-information-24-regular',
-        order: 10
-      }
-    }
   ],
   user: [
     {
@@ -1149,41 +953,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
         icon: 'mdi:monitor-dashboard',
         order: 1,
         i18nTitle: 'routes.dashboard._value'
-      }
-    },
-    {
-      name: 'auth-demo',
-      path: '/auth-demo',
-      component: 'basic',
-      children: [
-        {
-          name: 'auth-demo_permission',
-          path: '/auth-demo/permission',
-          component: 'self',
-          meta: {
-            title: '权限切换',
-            i18nTitle: 'routes.auth-demo.permission',
-            requiresAuth: true,
-            icon: 'ic:round-construction'
-          }
-        },
-        {
-          name: 'auth-demo_super',
-          path: '/auth-demo/super',
-          component: 'self',
-          meta: {
-            title: '超级管理员可见',
-            i18nTitle: 'routes.auth-demo.super',
-            requiresAuth: true,
-            icon: 'ic:round-supervisor-account'
-          }
-        }
-      ],
-      meta: {
-        title: '权限示例',
-        i18nTitle: 'routes.auth-demo._value',
-        icon: 'ic:baseline-security',
-        order: 5
       }
     },
     {
@@ -1245,19 +1014,5 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
         order: 8
       }
     },
-    {
-      name: 'about',
-      path: '/about',
-      component: 'self',
-      meta: {
-        title: '关于',
-        i18nTitle: 'routes.about',
-        requiresAuth: true,
-        keepAlive: true,
-        singleLayout: 'basic',
-        icon: 'fluent:book-information-24-regular',
-        order: 10
-      }
-    }
   ]
 };
