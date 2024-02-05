@@ -52,8 +52,8 @@ const lineOptions = ref<ECOption>({
 	yAxis: {},
 	series: [
 		{
-			color: "#8e9dff",
-			name: "类型1",
+			color: "#8e9dff", // random
+			name: "类型1", // 遍历legend
 			type: "line",
 			smooth: true,
 			areaStyle: {
