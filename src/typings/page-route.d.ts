@@ -67,7 +67,8 @@ declare namespace PageRoute {
     | 'plugin_print'
     | 'plugin_swiper'
     | 'plugin_video'
-    | 'upload';
+    | 'upload'
+    | 'user-center';
 
   /**
    * last degree route key, which has the page file
@@ -116,5 +117,6 @@ declare namespace PageRoute {
     | 'plugin_swiper'
     | 'plugin_video'
     | 'upload'
+    | 'user-center'
   >;
 }

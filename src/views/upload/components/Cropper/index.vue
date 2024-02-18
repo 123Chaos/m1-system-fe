@@ -41,9 +41,19 @@
 				:default-upload="false"
 				@change="handleChange"
 				@before-upload="beforeUpload"
+				v-if="props.mode === '1'"
 			>
 				<n-button type="primary">上传图片</n-button>
 			</n-upload>
+			<n-button
+				type="primary"
+				plain
+				@click="getImgFromServer"
+				style="margin-left: 20px"
+				v-if="props.mode === '2'"
+			>
+				获取图片
+			</n-button>
 			<n-button
 				type="primary"
 				plain
@@ -66,11 +76,19 @@
 				@click="getCropDataBase64"
 				style="margin-left: 20px"
 			>
-				获取截取的图片
+				查看截取的图片
+			</n-button>
+			<n-button
+				type="primary"
+				plain
+				@click="onSubmit"
+				style="margin-left: 20px"
+			>
+				提交图片
 			</n-button>
 		</n-space>
 		<n-space>
-			<div>展示截图的图片</div>
+			<div>截取的图片部分：</div>
 			<div style="width: 300px; height: 500px">
 				<!-- 若图片只设置宽度，可以保持等比例展示图片 -->
 				<img :src="imgUrl" style="width: 100%" />
@@ -110,7 +128,9 @@ const option = reactive({
 const uploadRef = ref(null);
 const imgUrl = ref("");
 const message = useMessage();
+const props = defineProps(["mode", "type"]);
 
+// 上传逻辑
 const handleChange = (options: any) => {
 	option.img = URL.createObjectURL(
 		new Blob([options.file.file], { type: "image/jpeg" }),
@@ -134,6 +154,7 @@ const getCropDataBase64 = () => {
 	});
 };
 
+// 限制上传的内容
 const beforeUpload = async (data: any) => {
 	if (data.file.file?.type !== "image/jpeg") {
 		message.error("只能上传jpeg格式的图片文件, 请重新上传");
@@ -141,4 +162,12 @@ const beforeUpload = async (data: any) => {
 	}
 	return true;
 };
+
+// 上传图片
+const onSubmit = async () => {
+	console.log(props.type);
+};
+
+// 获取服务器的图片
+const getImgFromServer = async () => {};
 </script>

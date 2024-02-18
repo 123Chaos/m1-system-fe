@@ -44,5 +44,6 @@ export const views: Record<
   plugin_print: () => import('./plugin/print/index.vue'),
   plugin_swiper: () => import('./plugin/swiper/index.vue'),
   plugin_video: () => import('./plugin/video/index.vue'),
-  upload: () => import('./upload/index.vue')
+  upload: () => import('./upload/index.vue'),
+  'user-center': () => import('./user-center/index.vue')
 };
