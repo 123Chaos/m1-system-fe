@@ -57,7 +57,6 @@ export const useAuthStore = defineStore('auth-store', {
     async handleActionAfterLogin(backendToken: ApiAuth.Token) {
       const route = useRouteStore();
       const { toLoginRedirect } = useRouterPush(false);
-
       const loginSuccess = await this.loginByToken(backendToken);
 
       if (loginSuccess) {

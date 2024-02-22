@@ -1,5 +1,5 @@
 <template>
-  <n-space class="container" vertical>
+  <n-space vertical>
     <SearchForm
       :search-form-config="searchFormConfig"
       :more="true"

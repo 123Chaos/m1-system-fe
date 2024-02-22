@@ -35,7 +35,6 @@ const apis: MockMethod[] = [
       }
 
       const findItem = userModel.find(item => item.userName === userName && item.password === password);
-
       if (findItem) {
         return {
           code: 200,

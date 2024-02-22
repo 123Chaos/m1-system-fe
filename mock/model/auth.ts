@@ -25,7 +25,7 @@ export const userModel: UserModel[] = [
     token: '__TOKEN_ADMIN__',
     refreshToken: '__REFRESH_TOKEN_ADMIN__',
     userId: '2',
-    userName: 'Admin',
+    userName: 'dmin',
     userRole: 'admin',
     password: 'admin123'
   },
