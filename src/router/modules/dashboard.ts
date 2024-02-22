@@ -13,14 +13,9 @@ const dashboard: AuthRoute.Route = {
         icon: 'icon-park-outline:analysis',
         i18nTitle: 'routes.dashboard.analysis'
       }
-    },
+    }
   ],
-  meta: {
-    title: '仪表盘',
-    icon: 'mdi:monitor-dashboard',
-    order: 1,
-    i18nTitle: 'routes.dashboard._value'
-  }
+  meta: { title: '仪表盘', icon: 'mdi:monitor-dashboard', order: 1, i18nTitle: 'routes.dashboard._value' }
 };
 
 export default dashboard;

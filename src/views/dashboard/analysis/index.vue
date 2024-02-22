@@ -14,7 +14,13 @@
 </template>
 
 <script lang="ts" setup>
+import { onBeforeMount } from 'vue';
+import { getJoke } from '@/api/dashboard';
 import { TopChart } from './components';
+
+onBeforeMount(async () => {
+  await getJoke({ aa: 'aa' });
+});
 </script>
 
 <style scoped></style>

@@ -1,14 +1,24 @@
 import axios from 'axios';
-// import { localStg } from '../utils/storage/local';
 
-// const service = axios.create();
-axios.interceptors.request.use();
-export const get = async (url: string) => {
-  try {
-    const response = await axios.get(url);
-    return response;
-  } catch (e) {
-    // console.log(e);
+const BASE_URL = '';
+
+const instance = axios.create({
+  baseURL: BASE_URL,
+  timeout: 30000,
+  responseType: 'json'
+});
+
+instance.interceptors.request.use((config: any): any => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.token = token;
   }
-  return null;
-};
+  // console.log(config.headers.token)
+  return config;
+});
+
+instance.interceptors.response.use((res: any): any => {
+  return res.data;
+});
+
+export default instance;

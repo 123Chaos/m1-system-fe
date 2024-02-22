@@ -15,17 +15,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
             icon: 'icon-park-outline:analysis',
             i18nTitle: 'routes.dashboard.analysis'
           }
-        },
-        {
-          name: 'dashboard_workbench',
-          path: '/dashboard/workbench',
-          component: 'self',
-          meta: {
-            title: '工作台',
-            requiresAuth: true,
-            icon: 'icon-park-outline:workbench',
-            i18nTitle: 'routes.dashboard.workbench'
-          }
         }
       ],
       meta: {
@@ -457,7 +446,7 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
         icon: 'carbon:cloud-service-management',
         order: 9
       }
-    },
+    }
   ],
   admin: [
     {
@@ -475,17 +464,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
             icon: 'icon-park-outline:analysis',
             i18nTitle: 'routes.dashboard.analysis'
           }
-        },
-        {
-          name: 'dashboard_workbench',
-          path: '/dashboard/workbench',
-          component: 'self',
-          meta: {
-            title: '工作台',
-            requiresAuth: true,
-            icon: 'icon-park-outline:workbench',
-            i18nTitle: 'routes.dashboard.workbench'
-          }
         }
       ],
       meta: {
@@ -917,7 +895,7 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
         icon: 'carbon:cloud-service-management',
         order: 9
       }
-    },
+    }
   ],
   user: [
     {
@@ -934,17 +912,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
             requiresAuth: true,
             icon: 'icon-park-outline:analysis',
             i18nTitle: 'routes.dashboard.analysis'
-          }
-        },
-        {
-          name: 'dashboard_workbench',
-          path: '/dashboard/workbench',
-          component: 'self',
-          meta: {
-            title: '工作台',
-            requiresAuth: true,
-            icon: 'icon-park-outline:workbench',
-            i18nTitle: 'routes.dashboard.workbench'
           }
         }
       ],
@@ -1013,6 +980,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
         icon: 'carbon:menu',
         order: 8
       }
-    },
+    }
   ]
 };
