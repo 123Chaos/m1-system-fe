@@ -16,7 +16,7 @@ const createColumns = (): DataTableColumns<any> => {
   return [
     {
       title: '操作记录',
-      key: 'opLog',
+      key: 'content',
       align: 'center',
       render(row) {
         return h(
@@ -29,7 +29,7 @@ const createColumns = (): DataTableColumns<any> => {
             bordered: false
           },
           {
-            default: () => row.opLog
+            default: () => row.content
           }
         );
       }
@@ -49,35 +49,35 @@ const createColumns = (): DataTableColumns<any> => {
 const createData = (): any[] => [
   {
     logId: 0,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 1,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 2,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 3,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 4,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'

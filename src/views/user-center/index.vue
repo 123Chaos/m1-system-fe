@@ -2,18 +2,17 @@
   <n-space vertical>
     <n-card>
       <n-space vertical style="gap: 20px">
-        <n-space>
+        <!-- <n-space>
           <n-space style="display: flex; align-items: center">
             <n-space style="font-weight: bold">修改用户名:</n-space>
             <n-space>
               <n-input v-model:value="formData.newName"></n-input>
             </n-space>
           </n-space>
-        </n-space>
+        </n-space> -->
         <n-space>
           <n-button quaternary @click="showModal = true">修改密码</n-button>
         </n-space>
-        <n-button type="primary" @click="onSubmit">保存</n-button>
       </n-space>
     </n-card>
     <n-modal v-model:show="showModal" preset="dialog">
@@ -45,10 +44,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { FormInst, FormItemInst, FormItemRule, FormRules } from 'naive-ui';
-
-const formData = ref({
-  newName: ''
-});
+import { setNewPassword } from '@/api/user/index';
 const formRef = ref<FormInst | null>(null);
 const rPasswordFormItemRef = ref<FormItemInst | null>(null);
 const model = ref({
@@ -75,13 +71,10 @@ const handlePasswordInput = () => {
   }
 };
 
-const onSubmit = () => {
-  model.value.password = '1';
-};
-
-const onSubmitModal = () => {
+const onSubmitModal = async () => {
   if (model.value?.password === model.value?.reenteredPassword && model.value?.password !== '') {
     // 提交
+    await setNewPassword(model.value);
     showModal.value = !showModal.value;
   }
 };

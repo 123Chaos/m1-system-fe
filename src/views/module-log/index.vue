@@ -1,29 +1,24 @@
 <template>
   <n-space vertical>
-    <SearchForm
-      :search-form-config="searchFormConfig"
-      :more="true"
-      @search="onSearch"
-      @reset="onReset"
-      @more="onSeeMore"
-    />
+    <Search :search-form-config="searchFormConfig" :more="true" @search="onSearch" @reset="onReset" @more="onSeeMore" />
     <n-data-table :columns="TableColumns" :data="TableData" :pagination="pagination" />
   </n-space>
 </template>
 
 <script setup lang="tsx">
-import { h } from 'vue';
+import { h, onBeforeMount } from 'vue';
 import { useRouter } from 'vue-router';
 import { NTag } from 'naive-ui';
 import type { DataTableColumns } from 'naive-ui';
-import { SearchForm } from './components';
+import { getDetail, getList } from '@/api/module-log/index';
+import { Search } from './components';
 import { searchFormConfig } from './constants';
 
 const createColumns = (): DataTableColumns<any> => {
   return [
     {
       title: '使用记录',
-      key: 'opLog',
+      key: 'content',
       align: 'center'
     },
     {
@@ -61,41 +56,40 @@ const createColumns = (): DataTableColumns<any> => {
 const createData = (): any[] => [
   {
     logId: 0,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 1,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 2,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 3,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   },
   {
     logId: 4,
-    opLog: '创建了这个页面',
+    content: '创建了这个页面',
     opTime: '2024/2/3 20:09',
     type: '类型1',
     operator: 'Ming'
   }
 ];
-
 const router = useRouter();
 const TableData = createData();
 const TableColumns = createColumns();
@@ -105,8 +99,11 @@ const pagination = {
   showSizePicker: true
 };
 
-const onSearch = () => {
-  // console.log(searchForm);
+const onSearch = async () => {
+  const { data } = await getList({ a: 1 });
+  if (data) {
+    console.log(data);
+  }
 };
 
 const onReset = () => {
@@ -116,4 +113,13 @@ const onReset = () => {
 const onSeeMore = () => {
   router.push('/module-detail');
 };
+
+const init = async () => {
+  await getDetail();
+  await getList({});
+};
+
+onBeforeMount(() => {
+  init();
+});
 </script>

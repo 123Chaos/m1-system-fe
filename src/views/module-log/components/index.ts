@@ -1,2 +1,2 @@
-import SearchForm from './SearchForm/index.vue';
-export { SearchForm }
+import Search from './SearchForm/index.vue';
+export { Search };
