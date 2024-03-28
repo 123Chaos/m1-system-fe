@@ -13,7 +13,6 @@ instance.interceptors.request.use((config: any): any => {
   if (token) {
     config.headers.token = token;
   }
-  // console.log(config.headers.token)
   return config;
 });
 

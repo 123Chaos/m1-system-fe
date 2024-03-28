@@ -1,7 +1,7 @@
 {
   "name": "m1-system",
-  "version": "0.0.7",
-  "description": "一个使用Vue3、TS、Vite4构建的智能图像处理中后台系统",
+  "version": "0.0.8",
+  "description": "智能图像分类处理后台系统",
   "author": {
     "name": "MingRen",
     "email": "799510721@qq.com",

@@ -14,3 +14,10 @@ export const getDetail = () => {
     url: 'http://localhost:3000/module-log/detail'
   });
 };
+
+export const getOptions = () => {
+  return request({
+    method: 'get',
+    url: 'http://localhost:3000/module-log/options'
+  });
+};

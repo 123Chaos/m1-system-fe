@@ -1,58 +1,23 @@
 <template>
   <n-space vertical>
-    <Search :search-form-config="searchFormConfig" :more="true" @search="onSearch" @reset="onReset" @more="onSeeMore" />
-    <n-data-table :columns="TableColumns" :data="TableData" :pagination="pagination" />
+    <Search :search-form-config="searchFormConfig" :more="true" @search="onSearch" @more="onSeeMore" />
+    <n-spin :show="isTableLoading">
+      <n-data-table :columns="TableColumns" :data="TableData" :pagination="paginationConfig" />
+    </n-spin>
   </n-space>
 </template>
 
-<script setup lang="tsx">
-import { h, onBeforeMount } from 'vue';
+<script setup lang="ts">
+import { onBeforeMount, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { NTag } from 'naive-ui';
-import type { DataTableColumns } from 'naive-ui';
-import { getDetail, getList } from '@/api/module-log/index';
-import { Search } from './components';
-import { searchFormConfig } from './constants';
+import { getList } from '@/api/module-log/index';
+import Search from '@/components/searchform/index.vue';
+import { searchFormConfig, paginationConfig, createColumns } from './const';
 
-const createColumns = (): DataTableColumns<any> => {
-  return [
-    {
-      title: '使用记录',
-      key: 'content',
-      align: 'center'
-    },
-    {
-      title: '模型类型',
-      key: 'type',
-      align: 'center',
-      render(row) {
-        return h(
-          NTag,
-          {
-            style: {
-              marginRight: '6px'
-            },
-            type: 'info',
-            bordered: false
-          },
-          {
-            default: () => row.type
-          }
-        );
-      }
-    },
-    {
-      title: '使用人',
-      key: 'operator',
-      align: 'center'
-    },
-    {
-      title: '使用时间',
-      key: 'opTime',
-      align: 'center'
-    }
-  ];
-};
+const router = useRouter();
+
+const TableColumns = createColumns();
+
 const createData = (): any[] => [
   {
     logId: 0,
@@ -90,24 +55,21 @@ const createData = (): any[] => [
     operator: 'Ming'
   }
 ];
-const router = useRouter();
+
 const TableData = createData();
-const TableColumns = createColumns();
-const pagination = {
-  pageSizes: [2, 5, 10, 20],
-  showQuickJumper: true,
-  showSizePicker: true
-};
 
-const onSearch = async () => {
-  const { data } = await getList({ a: 1 });
-  if (data) {
+const isTableLoading = ref(false);
+
+const onSearch = async (form: any) => {
+  try {
+    isTableLoading.value = true;
+    const { data } = await getList(form);
     console.log(data);
+  } catch (e) {
+    // pass
+  } finally {
+    isTableLoading.value = false;
   }
-};
-
-const onReset = () => {
-  // console.log(searchForm);
 };
 
 const onSeeMore = () => {
@@ -115,11 +77,15 @@ const onSeeMore = () => {
 };
 
 const init = async () => {
-  await getDetail();
-  await getList({});
+  try {
+    await getList({});
+  } finally {
+    // pass
+  }
 };
 
 onBeforeMount(() => {
   init();
 });
 </script>
+./const

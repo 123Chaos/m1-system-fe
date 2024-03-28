@@ -1,51 +1,20 @@
 <template>
   <n-space vertical>
-    <SearchForm :search-form-config="searchFormConfig" @search="onSearch" @reset="onReset" />
-    <n-data-table :columns="TableColumns" :data="TableData" :pagination="pagination" />
+    <Search :search-form-config="searchFormConfig" @search="onSearch" />
+    <n-spin :show="isTableLoading">
+      <n-data-table :columns="TableColumns" :data="TableData" :pagination="paginationConfig" />
+    </n-spin>
   </n-space>
 </template>
 
-<script setup lang="tsx">
-import { h } from 'vue';
-import { NTag } from 'naive-ui';
-import type { DataTableColumns } from 'naive-ui';
-import { searchFormConfig } from './constants';
-import { SearchForm } from './components';
+<script setup lang="ts">
+import { onBeforeMount, ref } from 'vue';
+import { getList } from '@/api/module-log/index';
+import Search from '@/components/searchform/index.vue';
+import { searchFormConfig, paginationConfig, createColumns } from './const';
 
-const createColumns = (): DataTableColumns<any> => {
-  return [
-    {
-      title: '操作记录',
-      key: 'content',
-      align: 'center',
-      render(row) {
-        return h(
-          NTag,
-          {
-            style: {
-              marginRight: '6px'
-            },
-            color: { color: 'transparent', textColor: '#328af1' },
-            bordered: false
-          },
-          {
-            default: () => row.content
-          }
-        );
-      }
-    },
-    {
-      title: '操作人',
-      key: 'operator',
-      align: 'center'
-    },
-    {
-      title: '操作时间',
-      key: 'opTime',
-      align: 'center'
-    }
-  ];
-};
+const TableColumns = createColumns();
+
 const createData = (): any[] => [
   {
     logId: 0,
@@ -85,18 +54,30 @@ const createData = (): any[] => [
 ];
 
 const TableData = createData();
-const TableColumns = createColumns();
-const pagination = {
-  pageSizes: [2, 5, 10, 20],
-  showQuickJumper: true,
-  showSizePicker: true
+
+const isTableLoading = ref(false);
+
+const onSearch = async () => {
+  try {
+    isTableLoading.value = true;
+    // const { data } = await getList(form);
+  } catch (e) {
+    // pass
+  } finally {
+    isTableLoading.value = false;
+  }
 };
 
-const onSearch = () => {
-  // console.log(searchForm);
+const init = async () => {
+  try {
+    await getList({});
+  } finally {
+    // pass
+  }
 };
 
-const onReset = () => {
-  // console.log(searchForm);
-};
+onBeforeMount(() => {
+  init();
+});
 </script>
+./const

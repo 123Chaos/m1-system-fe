@@ -35,9 +35,13 @@
 
 <script setup lang="tsx">
 import { ref } from 'vue';
+
 const props = defineProps(['searchFormConfig', 'more']);
+
 const emit = defineEmits(['reset', 'search', 'more']);
+
 const searchFormConfig = props?.searchFormConfig;
+
 const searchForm = ref({}) as any;
 
 const onSearch = () => {
@@ -57,17 +61,18 @@ const onSeeMore = () => {
     emit('more');
   }
 };
-onReset();
 </script>
 
 <style lang="scss">
 .search-form {
   display: flex;
   gap: 20px;
+
   .item {
     display: flex;
     align-items: center;
     justify-content: center;
+
     .tag {
       margin-right: 20px;
     }
